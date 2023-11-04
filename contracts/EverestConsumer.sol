@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.9;
+pragma solidity 0.8.18;
 
 import "@chainlink/contracts/src/v0.8/ChainlinkClient.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -91,7 +91,7 @@ contract EverestConsumer is IEverestConsumer, ChainlinkClient, Ownable {
     }
 
     function fulfill(bytes32 _requestId, Status _status, uint40 _kycTimestamp)
-        external
+        public
         override
         recordChainlinkFulfillment(_requestId)
     {
