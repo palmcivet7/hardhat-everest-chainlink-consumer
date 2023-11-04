@@ -153,7 +153,7 @@ contract EverestConsumer is IEverestConsumer, ChainlinkClient, Ownable {
         return _requests[_requestId].revealer != address(0);
     }
 
-    function statusToString(Status _status) external pure override returns (string memory) {
+    function statusToString(Status _status) public pure override returns (string memory) {
         if (_status == Status.KYCUser) {
             return "KYC_USER";
         }
