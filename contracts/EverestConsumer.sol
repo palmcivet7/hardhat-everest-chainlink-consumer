@@ -29,7 +29,7 @@ contract EverestConsumer is IEverestConsumer, ChainlinkClient, Ownable {
     // latest fulfilled request id by revealee address
     mapping(address => bytes32) public override latestFulfilledRequestId;
 
-    mapping(bytes32 => Request) private _requests;
+    mapping(bytes32 => Request) internal _requests;
 
     string public override signUpURL;
     bytes32 public override jobId;
@@ -91,7 +91,7 @@ contract EverestConsumer is IEverestConsumer, ChainlinkClient, Ownable {
     }
 
     function fulfill(bytes32 _requestId, Status _status, uint40 _kycTimestamp)
-        public
+        external
         virtual
         recordChainlinkFulfillment(_requestId)
     {
