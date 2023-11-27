@@ -9,3 +9,5 @@ build
 /artifacts
 
 .env
+
+test/example_contract.js
